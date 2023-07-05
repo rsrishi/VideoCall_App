@@ -30,7 +30,6 @@ React.useEffect(() => {
   setMyData(props.data);
 })
 // ;
- console.log(props.data)
 
 
 // return (

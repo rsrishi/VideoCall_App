@@ -6,9 +6,9 @@ export default function RoomView() {
     return(
         <View>
             <BasicCard/>
+            {/* <br/>
             <br/>
-            <br/>
-            <ListCard/>
+            <ListCard/> */}
         </View>
     )
 

@@ -9,21 +9,23 @@ import TextField from "@mui/material/TextField";
 import { View, StyleSheet, TextInput } from "react-native";
 import { Stack } from "@mui/material";
 import ListCard from "./ListRoomCard";
+import ListRooms from "./ListRooms";
 
 function BasicCard() {
-  const [value, setvalue] = useState("")
-    const [inputArr, setinputArr] = useState([])
+  const [value, setvalue] = useState("");
+  const [inputArr, setinputArr] = useState([]);
 
-    function submitRoom(e) {
-        setvalue(e.target.value);
-    }
-    const addRoom = ()=>{
-        if(!value){
-            alert("Please add some Note")
-        }
-        setinputArr(...inputArr,value);
-        
-    }
+  function submitRoom(e) {
+    setvalue(e.target.value);
+  }
+  const addRoom = () => {
+    if (!value) {
+      alert("Please add some Note");
+    }    
+    setinputArr([...inputArr, value]);
+    //setinputArr(...inputArr,value);
+    console.log("add room called...");
+  };
   return (
     <View>
       <Card sx={{ minWidth: 275 }}>
@@ -56,12 +58,11 @@ function BasicCard() {
           </CardActions>
         </Stack>
       </Card>
-      <View style={styles.hide}>
-        <ListCard data="gaurav" />
+      <View>
+        <ListRooms rooms={[inputArr]} />
       </View>
     </View>
   );
- 
 }
 export default BasicCard;
 
@@ -71,7 +72,7 @@ const styles = StyleSheet.create({
     borderWidth: "1%",
     borderColor: "black",
   },
-  hide:{
+  hide: {
     display: "none",
-  }
+  },
 });
